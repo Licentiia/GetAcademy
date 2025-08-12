@@ -6,17 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        /* Klasse .div – vil kun påvirke elementer som har class="div" */
+        .div{
+            background-color: rgb(55, 43, 226);
+            color: yellow;
+        }
+
+        /* Styling for alle <div>-elementer med class="blue" */
+        div.blue {
+            background-color: aqua;
+            color: red;
+            padding: 10px; /* Luft rundt innholdet inni boksen */
+            border: solid 3px green; /* Grønn stiplet kantlinje */
+            border-radius: 10px; /* Runde hjørner */
+            margin: 10px; /* Luft mellom dette elementet og andre */
+            text-align: center; /* Sentrerer teksten horisontalt */
+            font-size: small; /* Liten tekststørrelse */
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Seksjon: Overskrift + liste -->
     <h3>Måter å gjøre CSS på</h3>
-    <ul class="blue">
+    <ul>
         <li>Inline CSS</li>
         <li>Regler for alle tagger</li>
         <li>Regler for markerte tagger</li>
         <li>i egen fil</li>
     </ul>
+
+    <!-- Seksjon: Overskrift + liste -->
     <h3>Noen vanlige stiler</h3>
     <ul>
         <li><tt>background-color</tt></li>
@@ -27,13 +48,14 @@
         <li><tt>text-align</tt></li>
         <li><tt>font-size</tt></li>
     </ul>
+
     <div>
         bla bla bla bla bla
     </div>
     <div class="blue">
         bla bla bla bla bla
     </div>
-        <div>
+    <div>
         bla bla bla bla bla
     </div>
 </body>
