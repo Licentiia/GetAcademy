@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 115 A</title>
+    <style>
+        /* Fjerner standard margin/padding i nettleseren */
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Hovedcontainer som definerer grid-oppsettet */
+        div.container {
+            height: 100vh; /* Fyll hele høyden av vinduet */
+            display: grid; /* Aktiver CSS Grid */
+
+            /* Tre kolonner: meny (200px), hovedinnhold (resten), annonser (150px) */
+            grid-template-columns: 200px 1fr 150px;
+
+            /* Tre rader: header (20px), hovedområde (tar det meste), footer (20px) */
+            grid-template-rows: 20px 10fr 20px;
+
+            /* Navngir områder i gridet for enkel plassering av elementer */
+            grid-template-areas: 
+            "header header header" /* Header strekker seg over alle 3 kolonner */
+            "menu content ads" /* Midtdelen: meny, hovedinnhold, annonser */
+            "footer footer footer"; /* Footer strekker seg over alle 3 kolonner */
+        }
+
+        /* Styling for de ulike grid-områdene */
+        div.header {
+            grid-area: header; /* Plasseres i "header"-området */
+            background-color: lightsalmon;
+            
+        }
+
+        div.menu {
+            grid-area: menu;
+            background-color: aqua;
+        }
+
+        div.content {
+            grid-area: content;
+            background-color: lightgreen;
+        }
+        div.ads {
+            grid-area: ads;
+            background-color: lightseagreen;
+        }
+
+        div.footer {
+            grid-area: footer;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<!-- Hovedcontaineren som holder hele layouten -->
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="menu">Menu</div>
+        <div class="content">Main Content</div>
+        <div class="ads">Ads</div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>
