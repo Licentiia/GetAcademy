@@ -1,0 +1,13 @@
+        div{
+            background-color: rgb(55, 43, 226);
+            color: yellow;
+        }
+        div.blue {
+            background-color: aqua;
+            color: red;
+            padding: 10px;
+            border: dashed 3px green;
+            margin: 10px;
+            text-align: center;
+            font-size: large;
+        }
