@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Hovedcontainer for skjemaet */
+        #app {
+            display: grid;
+            /* Bruker CSS Grid for å lage to kolonner */
+            grid-template-columns: 150px 1fr;
+            /* Første kolonne: labels, andre: inputfelter */
+            gap: .75rem 1rem;
+            /* Vertikal og horisontal avstand mellom elementer */
+            align-items: center;
+            /* Sentrerer elementer vertikalt i cellene */
+            border-radius: 5px;
+            /* Avrundede hjørner */
+            background-color: #f2f2f2;
+            /* Lys bakgrunn */
+            padding: 20px
+                /* Luft rundt innholdet */
+        }
+
+        /* Overskriften i skjemaet */
+        #app h3 {
+            grid-column: 1/-1;
+            /* Strekker seg over begge kolonnene */
+            justify-self: center;
+            /* Sentrerer teksten horisontalt */
+        }
+
+        /* Alle labels plasseres i høyre kant av venstre kolonne */
+        #app label {
+            justify-self: end;
+        }
+
+        /* Container for radioknappene */
+        .radio-group {
+            display: flex;
+            /* Viser radioknappene på én rad */
+            gap: 1rem;
+            /* Avstand mellom radioknappene */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skjemaet som bruker CSS Grid-layouten ovenfor -->
+    <form id="app">
+        <h3>Mitt skjema</h3>
+
+        <label for="first">First Name</label>
+        <input id="first" type="text">
+
+        <label for="last">Last Name</label>
+        <input id="last" type="text">
+
+        <label for="range">En til hundre</label>
+        <input id="range" type="range">
+        <label for="number">Skriv inn et tall</label>
+        <input id="number" type="number">
+
+        <label>Favorittspråk:</label>
+        <!-- Radioknappene ligger i egen container til høyre -->
+        <div class="radio-group">
+            <label><input type="radio" name="fav_language"> HTML</label>
+            <label><input type="radio" name="fav_language"> CSS</label>
+            <label><input type="radio" name="fav_language">JavaScript</label>
+        </div>
+    </form>
+</body>
+
+</html>
