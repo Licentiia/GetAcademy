@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 115 B</title>
+
+    <style>
+        /* Sørger for at innholdet er sentrert i hele vinduet */
+        body {
+            height: 100vh; /* Fyll hele høyden av nettleservinduet */
+            display: flex; /* Bruk Flexbox for å sentrere containeren */
+            justify-content: center; /* Sentrer horisontalt */
+            align-items: center; /* Sentrer vertikalt */
+            margin: 0; /* Fjern standard margin */
+        }
+
+        /* Hovedcontainer som inneholder tallet og knappene */
+        .container {
+            display: grid; /* Bruk CSS Grid */
+            grid-template-columns: 50px 30px; /* Første kolonne for tall, andre for knappene */
+            grid-template-rows: 1fr 1fr; /* To rader: øke-knapp og minke-knapp */
+            grid-template-areas: 
+            "number up" /* Første rad: tall + opp-knapp */
+            "number down"; /* Andre rad: tall + ned-knapp */
+
+            gap: 2px; /* Avstand mellom rutene i gridet */
+            width: max-content; /* Bredden tilpasses innholdet */
+            font-family: Arial, Helvetica, sans-serif;
+            align-items: center; /* Vertikal sentrering av innhold i cellene */
+        }
+        /* Styling for tallet */
+        .number {
+            grid-area: number; /* Plasseres i "number"-området i gridet */
+            font-size: 24px;
+            text-align: center;
+        }
+        /* Styling for knapper */
+        .button {
+            border: 1px solid black;
+            background-color: white;
+            color: black;
+            padding: 5px 5px; /* Luft inni knappen */
+            cursor: pointer;
+            font-size: 15px;
+        }
+        /* Opp-knappen */
+        .up {
+            grid-area: up; /* Plasseres i "up"-området */
+        }
+        .down {
+            grid-area: down; /* Plasseres i "down"-området */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Containeren som holder tallet og knappene -->
+    <div class="container">
+        <div class="number">5</div> <!-- Tallet som vises -->
+        <button class="button up">&uarr;</button> <!-- Knapp for å øke tallet -->
+        <button class="button down">&darr;</button> <!-- Knapp for å minke tallet -->
+    </div>
+</body>
+</html>
