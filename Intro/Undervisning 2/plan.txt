@@ -1,0 +1,21 @@
+  variabler    
+    - deklarasjon
+    - tilordning
+    - typer
+    - lese/bruke verdi
+
+  operatorer
+    - tilordning 
+    - pluss
+    - minus
+    - dele
+
+Oppgave:
+
+"Mini adventure game"
+Inputfelt for å velge navnet til spilleren -> 
+knapp "Start" tegner opp "velkommen "navn",
+bilde av troll, og hvor mye penger man har,
+Hvor mye energi man har
+En knapp for å plukke opp "gull/penger"
+En knapp for å slå trollet -> når man slår mister man energi, og trollet mister liv

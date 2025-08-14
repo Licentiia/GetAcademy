@@ -1,0 +1,14 @@
+1. Introduksjon undervisning og pensum
+
+Tirsdag kl 10 og Torsdag kl 12.30
+* Følg med, still spørsmål og vær nysgjerrig :) 
+
+2. Chatgpt/co-pilot etc
+
+3. Pensum
+
+4. Intro til kodeeditor, 
+
+5. HTML, // Pause til 11.00
+6. litt CSS
+7. og litt JS

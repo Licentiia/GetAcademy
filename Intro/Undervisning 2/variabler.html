@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="teksten">Her skal det stå en tekst</div>
+    <button onclick="wakeUp()">Click me</button>
+
+    <script>
+        let name;
+        let age = 27;
+        let number = 0;
+        let isAwake = true;
+
+        let nyTekst = "Ny Tekst";
+
+        firstName = 'Jonas';
+        lastName = 'C B';
+
+        fullName = firstName + ' ' + lastName;
+
+        //console.log(name)
+
+        function printJonas() {
+            console.log('Full name: ' + fullName);
+        }
+
+        function printAge() {
+            console.log('Age:' + age);
+        }
+
+        function wakeUp() {
+            console.log('Waking up ...');
+
+            printJonas();
+            printAge();
+
+            changeText();
+
+            console.log('Is Awake? ' + isAwake)
+        }
+
+        function changeText() {
+            document.getElementById('teksten').innerHTML = nyTekst;
+        }
+
+        function IncreaseNumber() {
+            nummer += 5;  //øker tallet med 5
+            //nummer++ er å øke med 1
+            console.log(nummer)
+            document.getElementById('tall').innerHTML = nummer
+        }
+
+        function DecreaseNumber() {
+            nummer -= 5;  //trekker fra 5 fra tallet
+            // nummer-- senker med 1
+            console.log(nummer)
+            document.getElementById('tall').innerHTML = nummer
+        }
+
+        function multiplyNumber() {
+            nummer *= 5;
+            console.log(nummer)
+            document.getElementById('tall').innerHTML = nummer
+        }
+
+        function divideNumber() {
+            nummer /= 5;
+            console.log(nummer)
+            document.getElementById('tall').innerHTML = nummer
+        }
+    </script>
+</body>
+
+</html>

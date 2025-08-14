@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    "Mini Adventure Game" // ctrl k + c
+    Inputfelt for å velge navnet til spilleren ->
+    knapp "Start" tegner opp "Velkommen "navn",
+    bilde av troll, og hvor mye penger man har,
+    hvor mye energi man har,
+    En knapp for å plukke opp gull/penger
+    En knapp for å slå trollet -> når man slår mister man energi, og trollet mister liv
+    -->
+    <div id="app">
+        <input id="inputField">
+        <button onClick="startGame()">Start</button>
+        <!-- <img src="/Intro/Oppgaver/Resources/ruinelite_splash.png"> -->
+    </div>
+    
+    <script>
+        let userName = '';
+        let coins = 0;
+        let stamina = 100;
+
+        let trollHealth = 200;
+
+        function startGame() {
+            setName();
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>Velkommen ${userName}</div>
+
+            <div id="coinsDiv">Coins: ${coins}</div>
+            <div id="staminaDiv">Stamina: ${stamina}</div>
+
+            <div id="trollHealthDiv">Troll health: ${trollHealth}</div>
+            
+            <img height="200" src="/Intro/Oppgaver/Resources/ruinelite_splash.png">
+
+            <button onClick="pickUpCoins()">Plukk opp coins</button>
+            <button onClick="attack()">Attack</button>
+            `;
+        }
+
+        function setName() {
+            userName = document.getElementById('inputField').value;
+        }
+
+        function pickUpCoins() {
+            coins += 50; // Kan også gjøre: coins = coins + 50 - hva er forskjellen?
+            document.getElementById('coinsDiv').innerHTML = `Coins: ${coins}`
+        }
+
+        function attack() {
+            trollHealth = trollHealth - 20;
+            stamina = stamina - 10;
+
+            document.getElementById('staminaDiv').innerHTML = `Stamina: ${stamina}`;
+            document.getElementById('trollHealthDiv').innerHTML = `Troll health: ${trollHealth}`;
+        }
+    </script>
+
+</body>
+
+</html>

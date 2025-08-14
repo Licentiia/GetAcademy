@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksempel</title>
+    <style>
+        .wrapper{
+            display: flexbox;
+            flex-wrap: wrap;
+           flex-direction: column;          
+        }
+        .green{
+            color: green;
+        }
+        .backg-pink{
+            background-color: pink;
+        }
+        p{
+            background-color: aqua;
+            width: 200px;
+        }        
+    </style>
+</head>
+<body style="background-color: gray;"> 
+    <div id="myDiv" class="wrapper">
+            <h1 style="color: red;">Størst overskrift</h1>
+            <a href="https://www.google.com" target="_blank">Dette er en lenke</a>
+            <span id="mySpan">
+                hei her er det span :)
+            </span>
+            <input>
+            <section>
+                <h2 class="green">Blogpost</h2>
+                
+            </section>
+            <div class="backg-pink"> heihei!Løs tekst
+            <p id="myP">Hei, dette er en paragraf nr 1</p>  
+            <span>
+                hei her er det span :)
+            </span>
+            <br>
+            <ol>
+                <li>dette er punkt</li>
+                <li>dette er punkt 2</li>
+            </ol>
+            <p>Hei, dette er en paragraf</p>
+            <button onclick="changeText()">Press here!</button>
+            <button onclick="changeColor()">Change color !</button>
+            <button onclick="changeMyDivColor()">Change backgroundColor</button>
+            <button onclick="changeDiv()">Change div here</button>
+            </div>
+
+            <img>
+    </div>
+    <script>
+       
+        function changeText(){
+            document.getElementById('mySpan').innerHTML = 'Nå har jeg trykt på knappen';
+        }
+
+        function changeColor(){
+             document.getElementById('mySpan').style.backgroundColor = 'orange';
+        }
+
+        function changeMyDivColor(){
+            document.getElementById('myDiv').style.backgroundColor = 'hotpink';
+            document.getElementById('myP').style.width = '500px';
+        }
+
+        function changeDiv(){
+            document.getElementById('myDiv').innerHTML = '<p>endret hele siden</p>'
+        }
+
+    </script>
+</body>
+
+</html>
