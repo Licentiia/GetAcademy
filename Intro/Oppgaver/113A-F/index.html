@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 113 A</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            /* 200px venstre marg, resten høyre */
+        }
+
+        .sidebar {
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-right: 2px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            color: rgb(92, 85, 85);
+        }
+
+        .content {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            /* Skille mellom oppgaver */
+        }
+
+        .oppgave {
+            font-size: 1.17em;
+            /* tilsvarer H3 */
+            font-weight: bold;
+            /* gjør teksten som H3 */
+            border-left: 4px solid #ccc;
+            /* klassisk sitatlinje */
+            margin: 1em 0;
+            padding-left: 1em;
+            color: #555;
+        }
+
+        .img-128 {
+            width: 128px;
+            height: 128px;
+            object-fit: cover;
+        }
+
+        .note {
+            color: #666;
+            font-size: .9rem;
+        }
+
+        code {
+            background: #f6f6f6;
+            padding: .1rem .3rem;
+            border-radius: .25rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="sidebar">
+            <h2>Oppgave 113 B</h2>
+        </div>
+        <div class="content">
+            <p class="oppgave">Test ut overskrifter i forskjellige størrelser, samt tekst i avsnitt.
+            </p>
+            <p><b>Svar på oppgaven:</b></p>
+            <h1>Overskrift 1</h1>
+            <h2>Overskrift 2</h2>
+            <h3>Overskrift 3</h3>
+
+            <p>Eksempel på tekst i avsnitt.</p>
+            <p>Ny linje med eksempel på tekst i avsnitt.</p>
+        </div>
+
+        <div class="sidebar">
+            <h2>Oppgave 113 C</h2>
+        </div>
+        <div class="content">
+            <p class="oppgave">Lag nummererte lister og punktlister</p>
+            <p><b>Svar på oppgaven:</b></p>
+
+            <ul>
+                <li>Punktliste 1
+                    <ul>
+                        <li>Underliste 1 for Punktliste 1
+                            <ul>
+                                <li>... eksempel ...</li>
+                            </ul>
+                        </li>
+                        <li>Underliste 2 for Punktliste 1
+                            <ul>
+                                <li>... eksempel ...</li>
+                                <li>... eksempel ...</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul>
+                <li>Punktliste 2
+                    <ul>
+                        <li>Underliste 1 for Punktliste 2
+                            <ul>
+                                <li>... eksempel ...</li>
+                            </ul>
+                        </li>
+                        <li>Underliste 2 for Punktliste 2
+                            <ul>
+                                <li>... eksempel ...</li>
+                                <li>... eksempel ...</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ol>
+                <li>Nummerliste 1
+                    <ol type="1">
+                        <li>....</li>
+                        <li>....</li>
+                        <li>....</li>
+                    </ol>
+                </li>
+                <li>Nummerliste 2
+                    <ol type="a">
+                        <li>....</li>
+                        <li>....</li>
+                        <li>....</li>
+                    </ol>
+                </li>
+                <li>Nummerliste 3
+                    <ol type="I">
+                        <li>....</li>
+                        <li>....</li>
+                        <li>....</li>
+                    </ol>
+                </li>
+            </ol>
+
+        </div>
+
+        <div class="sidebar">
+            <h2>Oppgave 113 D</h2>
+        </div>
+        <div class="content">
+            <p class="oppgave">Lag lenker</p>
+            <p><b>Svar på oppgaven:</b></p>
+            <p>Klikk på lenken under for å se kildekode for oppgaven:</p>
+            <a href="https://github.com/Licentiia/GetAcademy/tree/main/Intro/Oppgaver/114A" target="_new">Link til
+                kildekode (GitHub)</a>
+
+        </div>
+
+        <div class="sidebar">
+            <h2>Oppgave 113 E</h2>
+        </div>
+        <div class="content">
+            <p class="oppgave">Sett inn bilder</p>
+            <p><b>Svar på oppgaven:</b></p>
+
+            <p class="note">Bildet hentet fra <code></code>https://www.w3schools.com</code></p><br />
+            <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools.com"
+                style="width:128px;height:128px;"><br />
+            <p class="note">Bildet hentet fra resource folder <code>(Intro/Oppgaver/Resources/ruinelite_splash.png)</code></p><br />
+            <img src="/Intro/Oppgaver/Resources/ruinelite_splash.png" alt="Italian Trulli"
+                style="width:128px;height:128px;">
+        </div>
+
+        <div class="sidebar">
+            <h2>Oppgave 113 F</h2>
+        </div>
+        <div class="content">
+            <p class="oppgave">Lag et skjema med tekstfelt, radioknapper og checkbokser</p>
+            <p><b>Svar på oppgaven:</b></p>
+            
+            <form action="#" method="post">
+                <label for="navn">Navn: </label><br>
+                <input type="text" id="navn" name="navn"><br><br>
+
+                <p>Kjønn:</p>
+                <input type="radio" id="mann" name="kjonn" value="mann">
+                <label for="mann">Mann</label><br>
+                <input type="radio" id="kvinne" name="kjonn" value="kvinne">
+                <label for="kvinne">Kvinne</label><br><br>
+
+                <p>Interesser:</p>
+                <input type="checkbox" id="html" name="Interesser" value="HTML">
+                <label for="html">HTML</label><br>
+
+                <input type="checkbox" id="css" name="Interesser" value="CSS">
+                <label for="html">CSS</label><br>
+
+                <input type="checkbox" id="js" name="Interesser" value="JavaScript">
+                <label for="html">JavaScript</label><br><br>
+
+                <input type="submit" value="Send inn">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
