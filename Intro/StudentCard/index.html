@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Student Card</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #1a1c2c, #0f172a);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .card {
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin: 8px 0 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #bbb;
+            margin: 2px 0 6px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .org {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+        .org i {
+            color: #67e8f9;
+            font-size: 18px;
+        }
+
+        .org a {
+            color: #eee;
+            text-decoration: none;
+        }
+
+        .org a:hover {
+            color: #67e8f9;
+            text-decoration: none;
+        }
+
+        .social a {
+            margin: 0 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.2s;
+        }
+
+        .social a:hover {
+            color: #67e;
+        }
+
+        .btn {
+            display: block;
+            margin: 15px auto 0;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            background: #67e;
+            color: #0b1220;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="card">
+        <img src="/Intro/StudentCard/res/avatar.png" alt="Jonas" style="width:200px">
+        <h1>Jonas Borchgrevink</h1>
+        <p class="title">Student</p>
+        <div class="org">
+            <i class="fa fa-code"></i>
+            <a href="https://www.getacademy.no" target="_blank">GET Academy</a>
+        </div>
+
+
+        <div class="social">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+
+        <p><button class="btn">Connect</button></p>
+    </div>
+</body>
+
+</html>
