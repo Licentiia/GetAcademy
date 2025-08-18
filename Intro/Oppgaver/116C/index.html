@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+        }
+
+        button {
+            margin: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="app">
+        Du er utenfor en leilighet. <br>
+        <button onClick="goTo('gang')">Gå inn</button>
+    </div>
+
+    <script>
+
+        function goTo(room) {
+            let app = document.getElementById('app');
+
+            switch (room) {
+                case "gang":
+                    app.innerHTML = /*HTML*/`
+                    Du står i gangen. <br>
+                    <button onclick="goTo('ute')">Gå ut</button>
+                    <button onclick="goTo('stue')">Gå inn i stua</button>
+                    <button onclick="goTo('bad')">Gå inn på badet</button>
+                    <button onclick="goTo('kjøkken')">Gå in på kjøkkenet</button>
+                    `;
+                    break;
+
+                case "ute":
+                    app.innerHTML = /*HTML*/`
+                    Du er utenfor en leilieghet. <br>
+                    <button onclick="goTo('gang')">Gå inn</button>
+                    `;
+                    break;
+
+                case "stue":
+                    app.innerHTML = /*HTML*/`
+                    Du er i stua. <br>
+                    <button onclick="goTo('kjøkken')">Gå inn på kjøkkenet</button>
+                    <button onclick="goTo('gang')">Gå ut i gangen</button>
+                    `;
+                    break;
+
+                case "bad":
+                    app.innerHTML = /*HTML*/`
+                    Du er på badet. <br>
+                    <button onclick="goTo('gang')">Gå ut i gangen</button>
+                    `;
+                    break;
+
+                case "kjøkken":
+                    app.innerHTML = /*HTML*/`
+                    Du er på kjøkkenet. <br>
+                    <button onclick="goTo('stue')">Gå inn i stua</button>
+                    <button onclick="goTo('gang')">Gå ut i gangen</button>
+                    `;
+                    break;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
