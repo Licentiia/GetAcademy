@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="addCircle()">Legg til sirkel</button>
+    <input type="number" id="circleValue" value="10" />
+    <br />
+    <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
+    </svg>
+    <script>
+
+        let circleValue = document.getElementById('circleValue').value;
+
+        function addCircle(x) {
+            //console.log(circleValue)
+            document.getElementById('mySvg').innerHTML = /*HTML*/`
+          <circle cx="${x}" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+      `;
+        }
+
+        //addCircle(value);
+    </script>
+</body>
+
+</html>
