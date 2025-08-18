@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <style>
+        div.trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body id="app">
+    <div class="trafficLight">
+        <div class="light" style="background-color: red;"></div>
+        <div class="light" style="background-color: gray;"></div>
+        <div class="light" style="background-color: gray;"></div>
+    </div>
+    <button onclick="trafficLight()">Next color</button>
+</body>
+
+</html>
+
+<script>
+
+    let mainDiv = document.getElementById('app');
+
+    function trafficLight() {
+        mainDiv.innerHTML = /*HTML*/ `
+        <div class="trafficLight">
+            <div class="light" style="background-color: red;"></div>
+            <div class="light" style="background-color: yellow;"></div>
+            <div class="light" style="background-color: grey;"></div>
+        </div>
+        <button onclick="trafficLight2()">Next color</button>
+        `
+    }
+
+    function trafficLight2() {
+        mainDiv.innerHTML = /*HTML*/ `
+        <div class="trafficLight">
+            <div class="light" style="background-color: gray;"></div>
+            <div class="light" style="background-color: gray;"></div>
+            <div class="light" style="background-color: green;"></div>
+        </div>
+        <button onclick="trafficLight3()">Next color</button>
+        `
+    }
+
+    function trafficLight3() {
+        mainDiv.innerHTML = /*HTML*/ `
+        <div class="trafficLight">
+            <div class="light" style="background-color: gray;"></div>
+            <div class="light" style="background-color: yellow;"></div>
+            <div class="light" style="background-color: gray;"></div>
+        </div>
+        <button onclick="trafficLight4()">Next color</button>
+        `
+    }
+
+    function trafficLight4() {
+        mainDiv.innerHTML = /*HTML*/ `
+        <div class="trafficLight">
+            <div class="light" style="background-color: red;"></div>
+            <div class="light" style="background-color: gray;"></div>
+            <div class="light" style="background-color: gray;"></div>
+        </div>
+        <button onclick="trafficLight()">Next color</button>
+        `
+    }
+
+</script>
