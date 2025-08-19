@@ -8,23 +8,76 @@
 </head>
 
 <body>
-    <button onclick="addCircle()">Legg til sirkel</button>
-    <input type="number" id="circleValue" value="10" />
+
+    <!-- Label that holds the X pos -->
+    <label>X:</label>
+    <input type="number" id="objectX" value="100" />
+
+    <!-- Label that holds the Y pos -->
+    <label>Y:</label>
+    <input type="number" id="objectY" value="100" />
+
     <br />
-    <svg id="mySvg" width="800" height="600" style="background-color: lightgray;">
-    </svg>
+
+    <!-- Dropdown menu for objects -->
+    <label for="objShape">Choose object:</label>
+    <select id="objShape">
+        <option value="circle">Circle</option>
+        <option value="triangle">Triangle</option>
+        <option value="square">Square</option>
+    </select>
+
+    <br />
+
+    <!-- Dropdown menu for colors -->
+    <label for="objColor">Choose object color:</label>
+    <select id="objColor">
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+    </select>
+
+    <br />
+
+    <!-- Dropdown menu for background color -->
+    <label for="bgColor">Choose background color:</label>
+    <select id="bgColor">
+        <option value="lightgray">red</option>
+        <option value="white">white</option>
+        <option value="yellow">yellow</option>
+        <option value="pink">pink</option>
+    </select>
+
+    <br /><br />
+    <button onclick="addShape()">Legg til objekt</button>
+    <br />
+
+    <br />
+    <svg id="mySvg" width="800" height="600" style="background-color: lightgray;"></svg>
+
     <script>
 
-        let circleValue = document.getElementById('circleValue').value;
+        function addShape() {
+            const x = Number(document.getElementById('objectX').value);
+            const y = Number(document.getElementById('objectY').value);
+            const objShape = document.getElementById('objShape').value;
+            const objColor = document.getElementById('objColor').value;
+            const bgColor = document.getElementById('bgColor').value;
 
-        function addCircle(x) {
-            //console.log(circleValue)
-            document.getElementById('mySvg').innerHTML = /*HTML*/`
-          <circle cx="${x}" cy="100" r="40" stroke="green" stroke-width="4" fill="yellow" />            
-      `;
+            const svg = document.getElementById('mySvg');
+            svg.style.backgroundColor = bgColor;
+
+            if (objShape == "circle") {
+                svg.innerHTML += `<circle cx="${x}" cy="${y}" r="40" fill="${objColor}"/>`
+            } else if (objShape == "square") {
+                svg.innerHTML += `<rect x="${x - 40}" y="${y - 40}" width="80" height="80" fill="${objColor}" />`;
+            } else if (objShape == "triangle") {
+                const p1 = `${x},${y - 50}`;
+                const p2 = `${x - 40},${y + 40}`;
+                const p3 = `${x + 40},${y + 40}`;
+                svg.innerHTML += `<polygon points="${p1} ${p2} ${p3}" fill="${objColor}" />`;
+            }
         }
-
-        //addCircle(value);
     </script>
 </body>
 
