@@ -49,13 +49,48 @@
     </select>
 
     <br /><br />
-    <button onclick="addShape()">Legg til objekt</button>
+    <button onclick="addShape()">Legg til objekt m/ egendefinerte innstillinger</button><br /><br />
+    <button onclick="addCircle()">Legg til circle</button>
+    <button onclick="addTriangle()">Legg til triangle</button>
+    <button onclick="addSquare()">Legg til square</button>
     <br />
 
     <br />
     <svg id="mySvg" width="800" height="600" style="background-color: lightgray;"></svg>
 
     <script>
+
+        function addCircle() {
+            const x = 100;
+            const y = 100;
+            const col = "cyan";
+
+            const svg = document.getElementById('mySvg');
+            svg.innerHTML += `<circle cx="${x}" cy="${y}" r="40" fill="${col}"/>`
+        }
+
+        function addTriangle() {
+            const x = 100;
+            const y = 100;
+            const col = "cyan";
+
+            const svg = document.getElementById('mySvg');
+
+            const p1 = `${x},${y - 50}`;
+            const p2 = `${x - 40},${y + 40}`;
+            const p3 = `${x + 40},${y + 40}`;
+
+            svg.innerHTML += `<polygon points="${p1} ${p2} ${p3}" fill="${objColor}" />`;
+        }
+
+        function addSquare() {
+            const x = 100;
+            const y = 100;
+            const col = "cyan";
+
+            const svg = document.getElementById('mySvg');
+            svg.innerHTML += `<rect x="${x - 40}" y="${y - 40}" width="80" height="80" fill="${objColor}" />`;
+        }
 
         function addShape() {
             const x = Number(document.getElementById('objectX').value);
