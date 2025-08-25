@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Forteller nettleseren at siden funker i både lyst og mørkt tema -->
+    <meta name="color-scheme" content="light dark" />
+
+    <style>
+        /* Standardverdier (lys) + CSS-variabler for enkel switching */
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --text: #111111;
+            --border: #dddddd;
+            --row-alt: #f2f2f2;
+            --th-bg: #04aa6d;
+            --th-text: #ffffff;
+        }
+
+        /* Automatisk mørk modus hvis systemet er mørkt */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0e0e0e;
+                --text: #e9e9e9;
+                --border: #333333;
+                --row-alt: #171717;
+                --th-bg: #0b8b59; /* litt mørkere grønn i dark mode */
+                --th-text: #e9e9e9;
+            }
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            /* “system-ui”-stack for å se native ut på plattformen */
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        table {
+            border-collapse: collapse; /* fjerner dobbelte rammer */
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid var(--border);
+            padding: 8px;
+        }
+
+        /* Annenhver rad får bakgrunn for lesbarhet */
+        tr:nth-child(even) {
+            background-color: var(--row-alt);
+        }
+
+        th {
+            background-color: var(--th-bg);
+            color: var(--th-text);
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Dag</th>
+                <th>Time</th>
+                <th>Minutt</th>
+                <th>Temperatur</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- starter tom; vi fyller på via JS -->
+        </tbody>
+
+        <!-- Merk: knappene ligger inni <table>. Det funker, men mange foretrekker dem utenfor. -->
+        <button onclick="insertRow()">Add Row</button>
+        <br />
+        <button onclick="insertColumn()">Add Column</button>
+    </table>
+
+    <script>
+        // Tegner opp header + tom body (kan kalles ved behov for å resette tabellen)
+        function renderTableHtml() {
+            const table = document.getElementById('myTable');
+
+            // Overskriver alt inni tabellen med “grunnskjelettet”
+            table.innerHTML = /*HTML*/ `
+            <thead>
+                <tr>
+                    <th>Dag</th>
+                    <th>Time</th>
+                    <th>Minutt</th>
+                    <th>Temperatur</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            `;
+        }
+
+        // Lager én celle som ren HTML-streng.
+        // Bruk: makeCell('td', 'Hei') -> "<td>Hei</td>"
+        function makeCell(tag, content) {
+            return `<${tag}>${content}</${tag}>`;
+        }
+
+        // Legger til én rad i <tbody> med fire verdier.
+        // cellTag bestemmer om det er data- eller headerceller (td/th).
+        function addRow(cellTag, c1, c2, c3, c4) {
+            const tbody = document.querySelector('#myTable tbody');
+
+            // Setter sammen én <tr> med fire celler
+            const row = `<tr>${
+                makeCell(cellTag, c1) +
+                makeCell(cellTag, c2) +
+                makeCell(cellTag, c3) +
+                makeCell(cellTag, c4)
+            }</tr>`;
+
+            // += appender (erstatter ikke)
+            tbody.innerHTML += row;
+        }
+
+        // Kalles når du trykker "Add Row".
+        // Poenget: finn hvor mange kolonner som finnes nå, og lag like mange celler.
+        function insertRow() {
+            const tbody = document.querySelector('#myTable tbody');
+            const theadRow = document.querySelector('#myTable thead tr');
+
+            const row = document.createElement('tr');
+
+            // Antall kolonner bestemmes ut fra headeren
+            const columnCount = theadRow.children.length;
+
+            // Lager riktig antall <td>-celler
+            for (let i = 1; i <= columnCount; i++) {
+                const td = document.createElement('td');
+                td.textContent = i; // enkel demo: nummererer cellene 1..N
+                row.appendChild(td);
+            }
+
+            // Legger raden i bunnen av tabellen
+            tbody.appendChild(row);
+        }
+
+        // Kalles når du trykker "Add Column".
+        // Legger til én ny kolonne: én <th> i header + én <td> i hver eksisterende rad.
+        function insertColumn() {
+            const theadRow = document.querySelector('#myTable thead tr');
+            const tbodyRows = document.querySelectorAll('#myTable tbody tr');
+
+            // Ny header-celle med navn. +1 fordi vi legger til neste kolonne.
+            const newTh = document.createElement('th');
+            newTh.textContent = `Kolonne ${theadRow.children.length + 1}`;
+            theadRow.appendChild(newTh);
+
+            // For hver rad i body: legg til én tom/placeholder celle
+            tbodyRows.forEach((row, rowIndex) => {
+                const newTd = document.createElement('td');
+                newTd.textContent = '...'; // rowIndex + 1 om du vil vise radnr
+                row.appendChild(newTd);
+            });
+        }
+
+        // kall ved oppstart hvis du vil resette tabellen:
+        // renderTableHtml();
+    </script>
+</body>
+
+</html>
