@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        .game-box {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Clicking Game</h1>
+        </header>
+
+        <main>
+            <div class="game-box">
+                <p>Click me!</p>
+            </div>
+
+            <div id="points-output">
+                <p>Points: 0</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    let points = 0;
+
+    function updatePoints() {
+        const output = document.getElementById('points-output');
+
+        output.innerHTML = /*HTML*/ `<p>Points: ${points}</p>`
+    }
+
+    document.addEventListener("click", () => {
+        points ++;
+        updatePoints();
+    });
+
+    updatePoints();
+</script>
+
+</html>
