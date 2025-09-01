@@ -1,0 +1,41 @@
+:root {
+  --bg:#ffffff; --fg:#0a0a0a; --muted:#c33;
+  --panel:#ffffff; --panel-fg:#000000; --border:#e5e7eb;
+  --btn-bg:#f3f3f3; --btn-fg:#111; --btn-hover:#e7e7e7;
+  --backdrop:rgba(0,0,0,.35);
+}
+html[data-theme="dark"]{
+  --bg:#0b0b0f; --fg:#e8e8ee; --muted:#ff7373;
+  --panel:#121218; --panel-fg:#f5f5f7; --border:#1f2430;
+  --btn-bg:#1b1b24; --btn-fg:#e8e8ee; --btn-hover:#242432;
+  --backdrop:rgba(255,255,255,.12);
+}
+
+body{ margin:0; background:var(--bg); color:var(--fg);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif; }
+#root{ padding:24px; min-height:100vh; display:grid; place-items:center; }
+
+button{ padding:8px 12px; border-radius:8px; cursor:pointer; border:1px solid transparent; background:var(--btn-bg); color:var(--btn-fg); }
+button:hover{ background:var(--btn-hover); }
+button:disabled{ opacity:.5; cursor:not-allowed; }
+
+#customAlert{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:var(--backdrop); z-index:9999; }
+#customAlert .box{ background:var(--panel); color:var(--panel-fg); border:2px solid var(--border); border-radius:10px; padding:16px; max-width:90vw; }
+#customAlert[data-open="true"]{ display:flex; }
+
+#topLeftPanel{
+  position:fixed; top:10px; left:10px; background:var(--panel); color:var(--fg);
+  border:1px solid var(--border); border-radius:8px; padding:10px 25px; font-size:14px;
+  box-shadow:0 2px 6px rgba(0,0,0,.2); z-index:1000; cursor:help;
+}
+#topLeftPanel::after{
+  content:attr(data-tooltip); position:absolute; top:100%; left:50%; transform:translateX(-50%);
+  background:black; color:white; padding:4px 8px; border-radius:4px; font-size:12px; white-space:nowrap;
+  opacity:0; pointer-events:none; transition:opacity .2s; margin-top:6px;
+}
+#topLeftPanel:hover::after{ opacity:1; }
+
+.row{ display:flex; gap:8px; }
+.mt-8{ margin-top:8px; }
+.mt-6{ margin-top:6px; }
+.muted{ color:var(--muted); font-size:.9rem; min-height:1.25rem; }
