@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="theme.css">
+    <script src="theme.js" defer></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
+
+
+    <div id="topLeftPanel" class="tooltip" data-tooltip="Tooltip text">
+        <strong>Status</strong><br>
+        Points: <span id="panelPoints"><b>0</b></span><br/>
+        Cheats: <span id="panelCheats"> <b style="color: red;">Disabled</b></span>
+    </div>
+
+    <div id="centerPanel">
+        <strong>Menu</strong><br>
+        Username: <span id="username">user</span>
+    </div>
+
+    <div id="customAlert">
+        <div class="box">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+
+        var hasCheats = false;
+
+        // view
+        updateView();
+        function updateView() {
+            var smiley = smileyIndex == 0 ? '😁' : '😀';
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div id="image" onclick="doClick()">${smiley}</div>
+            <div id="pointsInfo">${points}</div>
+            <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng) </button> <br />
+            <button onclick="enableCheat()">Cheese :)</button>
+        `
+        }
+
+        // Controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            console.log(smileyIndex);
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (points < 10) {
+                pushAlert("You do not have enough points to upgrade!");
+                return;
+            }
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+        }
+
+        function enableCheat() {
+            pushAlert("Cheats enabled");
+
+            points *= 10;
+            updateView();
+
+            document.getElementById('panelCheats').innerHTML = /*HTML*/ `
+            <b style="color:green">Enabled</b>
+            `;
+        }
+
+        function pushAlert(msg) {
+            document.getElementById('alertMessage').textContent = msg;
+            document.getElementById('customAlert').style.display = 'flex';
+        }
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+        function insertDiv() {
+
+        }
+
+        function setForegroundColor(color) {
+
+        }
+        function setBackgroundColor(color) {
+
+        }
+
+    </script>
+</body>
+
+
+
+</html>

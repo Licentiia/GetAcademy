@@ -1,0 +1,160 @@
+/* Light defaults */
+:root {
+  --bg: #ffffff;
+  --fg: #0b0b0f;
+  --muted: #666;
+  --card: #f6f7f9;
+  --border: #e5e7eb;
+  color-scheme: light dark;
+}
+
+/* Dark overrides */
+:root[data-theme="dark"] {
+  --bg: #0b0b0f;
+  --fg: #e7e9ee;
+  --muted: #a3a3a3;
+  --card: #12131a;
+  --border: #1f2430;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* use theme colors */
+  background: var(--bg);
+  color: var(--fg);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+#image {
+  width: 120px;
+  height: 120px;
+  font-size: 80px;
+  text-align: center;
+  line-height: 120px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--card);
+}
+
+#customAlert {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  border: 2px solid rgb(224, 8, 8);
+  border-radius: 8px;
+}
+
+#customAlert .box {
+  background: var(--card);
+  color: var(--fg);
+  padding: 16px;
+  border: 1px solid rgb(223, 218, 218);
+  border-radius: 8px;
+  max-width: 90vw;
+}
+
+#topLeftPanel {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+
+  cursor: help;
+}
+
+/* tooltip */
+#topLeftPanel::after {
+  content: attr(data-tooltip);
+  position: absolute;      /* relative to the fixed panel box */
+  top: 100%;               /* just below the panel */
+  left: 50%;
+  transform: translateX(-50%);
+  background: black;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  margin-top: 6px;
+}
+
+#topLeftPanel:hover::after {
+  opacity: 1;
+}
+
+#centerPanel {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+
+button {
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  /* viser pekehånd */
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: var(--border);
+  /* lysere/mørkere bakgrunn ved hover */
+}
+
+button:active {
+  transform: scale(0.96);
+  /* liten "trykk ned" animasjon */
+}
+
+
+/* Optional: minimal button skin (does NOT affect layout) */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2000;
+  border-radius: 999px; /* rundere enn vanlige knapper */
+}
